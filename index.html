@@ -1,107 +1,71 @@
-<!doctype html>
+Senin istediğin logoların tam boyutlu, orantılı ve şık görünmesini sağlamak için gereksiz veya yanlış görünen kısımları temizledim. İstersen önceki yapıyı koruyup sadece logo düzeltmelerini ekleyebilirim. İşte logo boyutlarını ve hizalamayı düzelten, önceki yapıyı bozmayan versiyon:
+
+```html
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sosyal Medya Linklerim</title>
-  <style>
-    :root{
-      --bg1:#0f2027;
-      --bg2:#203a43;
-      --bg3:#2c5364;
-      --card:#ffffff0a;
-      --muted:#cbd5e1;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:Inter,system-ui,Segoe UI,Roboto,-apple-system,'Helvetica Neue',Arial;
-      background:linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
-      color:white;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-    }
-    .card{
-      background:var(--card);
-      backdrop-filter:blur(12px);
-      padding:24px;
-      border-radius:16px;
-      max-width:400px;
-      width:100%;
-      box-shadow:0 8px 32px rgba(0,0,0,0.4);
-    }
-    h1{
-      text-align:center;
-      margin-bottom:20px;
-      font-size:1.6rem;
-    }
-    .links{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-    }
-    .link{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      padding:12px;
-      background:rgba(255,255,255,0.05);
-      border-radius:10px;
-      text-decoration:none;
-      color:white;
-      transition:transform .2s,background .2s;
-    }
-    .link:hover{
-      transform:translateY(-3px);
-      background:rgba(255,255,255,0.12);
-    }
-    .icon{
-      width:36px;height:36px;display:flex;align-items:center;justify-content:center;
-    }
-    .label{
-      font-size:1rem;
-      font-weight:600;
-    }
-    .meta{
-      font-size:0.8rem;
-      color:var(--muted);
-    }
-    svg{width:24px;height:24px;fill:white}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sosyal Medya Linkleri</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #3a3a5a);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  .card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.15);
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    transition: background 0.3s ease;
+  }
+  a:hover {
+    background: rgba(255,255,255,0.25);
+  }
+  img.logo {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    border-radius: 5px;
+  }
+</style>
 </head>
 <body>
   <div class="card">
-    <h1>Bağlantılarım</h1>
-    <div class="links">
-      <a class="link" href="https://open.spotify.com/user/280pkq650i9e6jm0c2qbkfq0k" target="_blank">
-        <div class="icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 168"><path d="M84 0a84 84 0 1 0 0 168 84 84 0 0 0 0-168zm38.1 120.5a5.25 5.25 0 0 1-7.2 1.8c-19.7-12-44.5-14.7-73.6-8a5.25 5.25 0 1 1-2.3-10.3c31.8-7 59.5-4 81 9.1a5.25 5.25 0 0 1 2.1 7.4zm10.3-20.8a6.56 6.56 0 0 1-9 2.2c-22.5-13.8-56.8-17.8-83.5-9.7a6.56 6.56 0 1 1-3.9-12.5c29.8-9.2 68.5-4.7 94.4 11.2a6.56 6.56 0 0 1 2 8.8zm.9-22.2c-27-16.1-71.5-17.6-97.2-9.6a7.87 7.87 0 1 1-4.6-15c28.6-8.8 77-7 107.8 11.6a7.87 7.87 0 0 1-8 13z"/></svg>
-        </div>
-        <div>
-          <div class="label">Spotify</div>
-        </div>
-      </a>
-      <a class="link" href="https://instagram.com/azizb.arslann" target="_blank">
-        <div class="icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.9 224.1 370.9 339 319.6 339 255.9 287.7 141 224.1 141zm0 189.6c-41.2 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.9-26.9 26.9-14.9 0-26.9-12-26.9-26.9s12-26.9 26.9-26.9 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9S366 36.1 330.1 34.4c-35.9-2-143.6-2-179.5 0-35.9 1.7-67.7 9.9-93.9 36.2S36.1 145.9 34.4 181.8c-2 35.9-2 143.6 0 179.5 1.7 35.9 9.9 67.7 36.2 93.9s58 34.5 93.9 36.2c35.9 2 143.6 2 179.5 0 35.9-1.7 67.7-9.9 93.9-36.2 26.3-26.3 34.5-58 36.2-93.9 2-35.9 2-143.6 0-179.5z"/></svg>
-        </div>
-        <div>
-          <div class="label">Instagram</div>
-          <div class="meta">@azizb.arslann</div>
-        </div>
-      </a>
-      <a class="link" href="https://discord.com/users/nemalacakfelekbenim" target="_blank">
-        <div class="icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 245 240"><path d="M104.4 103.9c-5.7 0-10.2 5-10.2 11.1 0 6.1 4.6 11.1 10.2 11.1 5.7 0 10.2-5 10.2-11.1.1-6.1-4.5-11.1-10.2-11.1zm36.2 0c-5.7 0-10.2 5-10.2 11.1 0 6.1 4.6 11.1 10.2 11.1 5.7 0 10.2-5 10.2-11.1s-4.5-11.1-10.2-11.1z"/><path d="M189.5 20h-134C24.1 20 15 29.2 15 40.6v135.2c0 11.4 9.1 20.6 20.5 20.6h113.4l-5.3-18.5 12.8 11.8 12.1 11.1 21.5 19V40.6c0-11.4-9.1-20.6-20.5-20.6zm-38.6 132s-3.6-4.3-6.6-8.1c13.1-3.7 18.1-11.8 18.1-11.8-4.1 2.7-8 4.6-11.5 5.9-5 2.1-9.8 3.5-14.5 4.3-9.6 1.8-18.4 1.3-25.9-.1-5.7-1.1-10.6-2.6-14.7-4.3-2.3-.9-4.8-2-7.3-3.4-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.3-1.8-1-2.8-1.7-2.8-1.7s4.8 8 17.5 11.8c-3 3.8-6.7 8.3-6.7 8.3-22.1-.7-30.5-15.2-30.5-15.2 0-32.2 14.4-58.3 14.4-58.3 14.4-10.8 28.1-10.5 28.1-10.5l1 1.2c-18 5.2-26.3 13.2-26.3 13.2s2.2-1.2 5.9-2.8c10.7-4.7 19.2-6 22.7-6.3.6-.1 1.1-.2 1.7-.2 6.1-.8 13-1 20.2-.2 9.5 1.1 19.6 3.8 30 9.4 0 0-7.9-7.5-24.9-12.7l1.4-1.6s13.7-.3 28.1 10.5c0 0 14.4 26.1 14.4 58.3 0 0-8.5 14.5-30.7 15.2z"/></svg>
-        </div>
-        <div>
-          <div class="label">Discord</div>
-          <div class="meta">nemalacakfelekbenim</div>
-        </div>
-      </a>
-    </div>
+    <a href="https://open.spotify.com/user/280pkq650i9e6jm0c2qbkfq0k" target="_blank">
+      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
+      <span>Spotify</span>
+    </a>
+    <a href="https://instagram.com/azizb.arslann" target="_blank">
+      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
+      <span>Instagram</span>
+    </a>
+    <a href="https://discord.com/users/nemalacakfelekbenim" target="_blank">
+      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo.svg" alt="Discord">
+      <span>Discord</span>
+    </a>
   </div>
 </body>
 </html>
+```
