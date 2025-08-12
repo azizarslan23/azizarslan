@@ -7,57 +7,61 @@
 <style>
   body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
     color: white;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     min-height: 100vh;
     margin: 0;
   }
-  .card {
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    padding: 20px 30px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  .social-container {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    gap: 20px;
   }
   a {
     display: flex;
     align-items: center;
     gap: 10px;
-    background: rgba(255,255,255,0.15);
-    padding: 10px 15px;
-    border-radius: 10px;
+    padding: 12px 20px;
+    border-radius: 30px;
     text-decoration: none;
     color: white;
-    transition: background 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
   }
   a:hover {
-    background: rgba(255,255,255,0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  }
+  .spotify {
+    background: #1DB954;
+  }
+  .instagram {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  }
+  .discord {
+    background: #5865F2;
   }
   img.logo {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     object-fit: contain;
   }
 </style>
 </head>
 <body>
-  <div class="card">
-    <a href="https://open.spotify.com/user/280pkq650i9e6jm0c2qbkfq0k" target="_blank">
+  <div class="social-container">
+    <a class="spotify" href="https://open.spotify.com/user/280pkq650i9e6jm0c2qbkfq0k" target="_blank">
       <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
       <span>Spotify</span>
     </a>
-    <a href="https://instagram.com/azizb.arslann" target="_blank">
-      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+    <a class="instagram" href="https://instagram.com/azizb.arslann" target="_blank">
+      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_new.svg" alt="Instagram">
       <span>Instagram</span>
     </a>
-    <a href="https://discord.com/users/nemalacakfelekbenim" target="_blank">
+    <a class="discord" href="https://discord.com/users/nemalacakfelekbenim" target="_blank">
       <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Discord_Color_Logo.svg" alt="Discord">
       <span>Discord</span>
     </a>
