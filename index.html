@@ -1,39 +1,69 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Sosyal Medya Linkleri</title>
 <style>
   body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    /* Daha canlı, biraz hareketli degrade arka plan */
+    background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
   }
+
+  /* Kedi ekleme için kutular - bunları istediğin gibi doldurabilirsin */
+  .cat-top, .cat-bottom {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    pointer-events: none; /* Tıklanabilir değil */
+  }
+  .cat-top {
+    top: 20px;
+    /* Örnek: background-image: url('kedi_ust.png'); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  .cat-bottom {
+    bottom: 20px;
+    /* Örnek: background-image: url('kedi_alt.png'); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
   .social-container {
     display: flex;
     gap: 20px;
+    z-index: 1; /* Üstte olsun */
   }
   a {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 12px 20px;
-    border-radius: 30px;
+    gap: 12px;
+    padding: 14px 28px;
+    border-radius: 40px;
     text-decoration: none;
     color: white;
-    font-weight: bold;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    font-weight: 700;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    transition: transform 0.25s ease, box-shadow 0.3s ease;
   }
   a:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.4);
   }
   .spotify {
     background: #1DB954;
@@ -45,26 +75,30 @@
     background: #5865F2;
   }
   img.logo {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     object-fit: contain;
   }
 </style>
 </head>
 <body>
+  <div class="cat-top" id="catTop"></div>
+
   <div class="social-container">
-    <a class="spotify" href="https://open.spotify.com/user/280pkq650i9e6jm0c2qbkfq0k" target="_blank">
-      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
+    <a class="spotify" href="https://open.spotify.com/user/280pkq650i9e6jm0c2qbkfq0k" target="_blank" rel="noopener noreferrer">
+      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" />
       <span>Spotify</span>
     </a>
-    <a class="instagram" href="https://instagram.com/azizb.arslann" target="_blank">
-      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_new.svg" alt="Instagram">
+    <a class="instagram" href="https://instagram.com/azizb.arslann" target="_blank" rel="noopener noreferrer">
+      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_new.svg" alt="Instagram" />
       <span>Instagram</span>
     </a>
-    <a class="discord" href="https://discord.com/users/nemalacakfelekbenim" target="_blank">
-      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Discord_Color_Logo.svg" alt="Discord">
+    <a class="discord" href="https://discord.com/users/nemalacakfelekbenim" target="_blank" rel="noopener noreferrer">
+      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Discord_Color_Logo.svg" alt="Discord" />
       <span>Discord</span>
     </a>
   </div>
+
+  <div class="cat-bottom" id="catBottom"></div>
 </body>
 </html>
