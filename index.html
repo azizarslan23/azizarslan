@@ -7,7 +7,6 @@
 <style>
   body {
     font-family: Arial, sans-serif;
-    /* Daha canlı, biraz hareketli degrade arka plan */
     background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
     color: white;
     min-height: 100vh;
@@ -20,34 +19,30 @@
     overflow: hidden;
   }
 
-  /* Kedi ekleme için kutular - bunları istediğin gibi doldurabilirsin */
   .cat-top, .cat-bottom {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     width: 120px;
     height: 120px;
-    pointer-events: none; /* Tıklanabilir değil */
+    pointer-events: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
   }
   .cat-top {
     top: 20px;
-    /* Örnek: background-image: url('kedi_ust.png'); */
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    background-image: url('kedi_ust.png');
   }
   .cat-bottom {
     bottom: 20px;
-    /* Örnek: background-image: url('kedi_alt.png'); */
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    background-image: url('kedi_alt.png');
   }
 
   .social-container {
     display: flex;
     gap: 20px;
-    z-index: 1; /* Üstte olsun */
+    z-index: 1;
   }
   a {
     display: flex;
@@ -94,7 +89,7 @@
       <span>Instagram</span>
     </a>
     <a class="discord" href="https://discord.com/users/nemalacakfelekbenim" target="_blank" rel="noopener noreferrer">
-      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Discord_Color_Logo.svg" alt="Discord" />
+      <img class="logo" src="https://cdn.imgbin.com/2/21/7/discord-icon-blue-discord-logo-for-chatting-and-communication-RA6Qd2f8.jpg" alt="Discord" />
       <span>Discord</span>
     </a>
   </div>
