@@ -36,8 +36,7 @@
     <header>
       <div class="logo">SM</div>
       <div>
-        <h1>Sosyal Medya Link Sayfam</h1>
-        <p class="lead">Aşağıya sosyal hesaplarını ekle — ziyaretçiler ikon veya yazıya tıklayınca hesabına gider.</p>
+        <h1>Slm</h1>
       </div>
     </header>
 
@@ -74,69 +73,10 @@
     };
 
     const samples = [
-      {type:'instagram',label:'Instagram',url:'https://instagram.com/yourusername'},
-      {type:'youtube',label:'YouTube',url:'https://youtube.com'}
+      {type:'instagram',label:'Instagram',url:'https://instagram.com/azizb.arslann'},
+      {type:'spotify',label:'Spotify',url:'https://open.spotify.com/user/280pkq650i9e6jm0c2qbkfq0k'}
     ];
 
-    function load(){
-      const raw = localStorage.getItem('sm_links');
-      if(raw){
-        try{const parsed = JSON.parse(raw); if(Array.isArray(parsed)) return parsed}catch(e){}
-      }
-      return samples;
-    }
-
-    let links = load();
-
-    function normalizeUrl(type, input){
-      if(!input) return '';
-      input = input.trim();
-      if(input.startsWith('http')) return input;
-      // common shorthand @kullanici -> platform url
-      if(input.startsWith('@')) input = input.slice(1);
-      const map = {
-        instagram: `https://instagram.com/${input}`,
-        twitter: `https://twitter.com/${input}`,
-        youtube: input.includes('channel')||input.includes('watch')?input:`https://youtube.com/${input}`,
-        tiktok: `https://www.tiktok.com/@${input}`,
-        github: `https://github.com/${input}`,
-        linkedin: `https://www.linkedin.com/in/${input}`,
-        website: input
-      }
-      return map[type] || input;
-    }
-
-    function render(){
-      const wrap = document.getElementById('links');
-      wrap.innerHTML = '';
-      links.forEach((l, i)=>{
-        const a = document.createElement('a');
-        a.className = 'link';
-        a.href = l.url;
-        a.target = '_blank';
-        a.rel = 'noopener noreferrer';
-        a.innerHTML = `<div class="icon">${svgs[l.type]||svgs.website}</div><div style="flex:1"><div class="label">${escapeHtml(l.label||l.type)}</div><div class="meta">${l.url}</div></div>`;
-        wrap.appendChild(a);
-      })
-      localStorage.setItem('sm_links', JSON.stringify(links));
-    }
-
-    function escapeHtml(s){return String(s).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]))}
-
-    document.getElementById('addBtn').addEventListener('click', ()=>{
-      const type = document.getElementById('type').value;
-      const label = document.getElementById('label').value || (type.charAt(0).toUpperCase()+type.slice(1));
-      const urlInput = document.getElementById('url').value;
-      const url = normalizeUrl(type, urlInput);
-      if(!urlInput){alert('Lütfen bir kullanıcı adı veya URL girin.');return}
-      links.unshift({type,label,url});
-      render();
-      document.getElementById('label').value = '';
-      document.getElementById('url').value = '';
-    });
-
-    // initial
-    render();
   </script>
 </body>
 </html>
