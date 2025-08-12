@@ -44,7 +44,7 @@
     gap: 20px;
     z-index: 1;
   }
-  a {
+  a, .discord-button {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -55,8 +55,10 @@
     font-weight: 700;
     box-shadow: 0 6px 18px rgba(0,0,0,0.3);
     transition: transform 0.25s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    user-select: none;
   }
-  a:hover {
+  a:hover, .discord-button:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 28px rgba(0,0,0,0.4);
   }
@@ -74,6 +76,43 @@
     height: 32px;
     object-fit: contain;
   }
+
+  /* Yazı animasyon kapsayıcısı */
+  #discordTexts {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    overflow: visible;
+    z-index: 9999;
+  }
+  .discord-text {
+    position: absolute;
+    top: 50%;
+    font-size: 20px;
+    font-weight: 700;
+    color: #5865F2;
+    white-space: nowrap;
+    user-select: none;
+    opacity: 1;
+    transform: translateY(-50%);
+    animation: flyOut 5s forwards;
+  }
+
+  /* Animasyon: yazılar kenarlara doğru uçar ve kaybolur */
+  @keyframes flyOut {
+    0% {
+      opacity: 1;
+      transform: translateX(0) translateY(-50%);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(var(--fly-x)) translateY(-50%);
+    }
+  }
 </style>
 </head>
 <body>
@@ -88,12 +127,50 @@
       <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_new.svg" alt="Instagram" />
       <span>Instagram</span>
     </a>
-    <a class="discord" href="https://discord.com/users/nemalacakfelekbenim" target="_blank" rel="noopener noreferrer">
-      <img class="logo" src="https://cdn.imgbin.com/2/21/7/discord-icon-blue-discord-logo-for-chatting-and-communication-RA6Qd2f8.jpg" alt="Discord" />
+    <div class="discord discord-button" id="discordBtn" aria-label="Discord">
+      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Discord_Color_Logo.svg" alt="Discord" />
       <span>Discord</span>
-    </a>
+    </div>
   </div>
 
   <div class="cat-bottom" id="catBottom"></div>
+
+  <div id="discordTexts"></div>
+
+<script>
+  const discordBtn = document.getElementById('discordBtn');
+  const discordTextsContainer = document.getElementById('discordTexts');
+  const username = 'nemalacakfelekbenim';
+
+  discordBtn.addEventListener('click', () => {
+    // Temizle önce
+    discordTextsContainer.innerHTML = '';
+
+    // Yazıları oluştur
+    for(let i = 0; i < 10; i++) {
+      const span = document.createElement('span');
+      span.classList.add('discord-text');
+      span.textContent = username;
+
+      // Uçuş yönü için rastgele pozitif veya negatif X kaydırma (-300 ile 300px arası)
+      const flyX = (Math.random() < 0.5 ? -1 : 1) * (200 + Math.random() * 200);
+      span.style.setProperty('--fly-x', flyX + 'px');
+
+      // Yatayda biraz rastgele farklı konumlar
+      span.style.top = (40 + Math.random() * 20) + '%';
+
+      // Sol başlangıç pozisyonu: ortadan başlatıyoruz (yani %50 değil)
+      span.style.left = '50%';
+
+      discordTextsContainer.appendChild(span);
+    }
+
+    // 5 saniye sonra temizle
+    setTimeout(() => {
+      discordTextsContainer.innerHTML = '';
+    }, 5000);
+  });
+</script>
+
 </body>
 </html>
